@@ -13,10 +13,12 @@ import com.example.booklister.FantasyFragment;
 
 public class BookPagerAdapter extends FragmentStateAdapter {
     private static final int NUM_PAGES = 3;
+    private String[] titles = {"Fantasy","Code","Business"};
 
     public BookPagerAdapter(FragmentActivity fa){
         super(fa);
     }
+
 
 
     @NonNull
@@ -29,4 +31,7 @@ public class BookPagerAdapter extends FragmentStateAdapter {
     public int getItemCount() {
         return NUM_PAGES;
     }
+
+
+
 }

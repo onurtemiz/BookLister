@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,10 +20,16 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView bookName;
+        public TextView bookType;
+        public TextView bookPages;
+        public ImageView bookImage;
 
         public ViewHolder(View itemView){
             super(itemView);
             bookName = (TextView) itemView.findViewById(R.id.bookName);
+            bookType = (TextView) itemView.findViewById(R.id.bookType);
+            bookPages = (TextView) itemView.findViewById(R.id.bookPage);
+            bookImage = (ImageView) itemView.findViewById(R.id.bookCover);
 
         }
     }
@@ -46,7 +53,15 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
     public void onBindViewHolder(BookAdapter.ViewHolder viewHolder,int position){
         Book book = books.get(position);
         TextView bookName = viewHolder.bookName;
-        bookName.setText(book.getBookName());
+        bookName.setText("Name: " + book.getBookName());
+        TextView bookType = viewHolder.bookType;
+        bookType.setText("Author: " + book.getBookType());
+        TextView bookPages = viewHolder.bookPages;
+        bookPages.setText("Pages: " + book.getBookPages());
+        ImageView bookImage = viewHolder.bookImage;
+        if(book.getBookImage() != 0){
+        bookImage.setImageResource(book.getBookImage());}
+
     }
 
     @Override

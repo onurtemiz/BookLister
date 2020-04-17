@@ -46,15 +46,15 @@ public class FantasyFragment extends Fragment {
                              Bundle savedInstanceState) {
 
 
-        books.add(new Book("The Name Of The Wind","Fantasy","800",0));
-        books.add(new Book("A Dance With Dragon","Fantasy","757",0));
-        books.add(new Book("A Feast For Crows","Fantasy","538",0));
-        books.add(new Book("A Game Of Thrones","Fantasy","897",0));
-        books.add(new Book("A Storm Of Swords","Fantasy","678",0));
-        books.add(new Book("Harry Potter And The Goblet Fire","Fantasy","423",0));
-        books.add(new Book("Harry Potter And The Order Of The Phoenix","Fantasy","653",0));
-        books.add(new Book("Harry Potter And The Philosopher's Stone","Fantasy","231",0));
-        books.add(new Book("The World Of Ice And Fire","Fantasy","582",0));
+        books.add(new Book("The Name Of The Wind","Patrick Rothfuss","800",R.drawable.the_name_of_the_wind));
+        books.add(new Book("A Dance With Dragon","G.R.R Martin","757",R.drawable.a_dance_with_dragon));
+        books.add(new Book("A Feast For Crows","G.R.R Martin","538",R.drawable.a_feast_for_crows));
+        books.add(new Book("A Game Of Thrones","G.R.R Martin","897",R.drawable.a_game_of_thrones));
+        books.add(new Book("A Storm Of Swords","G.R.R Martin","678",R.drawable.a_storm_of_swords));
+        books.add(new Book("Harry Potter And The Goblet Fire","J.K Rowling","423",R.drawable.harry_potter_and_the_goblet_fire));
+        books.add(new Book("Harry Potter And The Order Of The Phoenix","J.K Rowling","653",R.drawable.harry_potter_and_the_order_of_phoenix));
+        books.add(new Book("Harry Potter And The Philosopher's Stone","J.K Rowling","231",R.drawable.harry_potter_and_the_philosophers_stone));
+        books.add(new Book("The World Of Ice And Fire","J.K Rowling","582",R.drawable.the_world_of_ice_and_fire));
 
 
 

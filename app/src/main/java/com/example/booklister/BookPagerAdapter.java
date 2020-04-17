@@ -24,7 +24,13 @@ public class BookPagerAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        return new FantasyFragment();
+        if (position == 0){
+            return new FantasyFragment();
+        }else if (position == 1){
+            return new CodeFragment();
+        }else {
+            return new BusinessFragment();
+        }
     }
 
     @Override

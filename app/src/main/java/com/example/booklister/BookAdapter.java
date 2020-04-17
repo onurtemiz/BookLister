@@ -10,39 +10,47 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class BookAdapter extends ArrayAdapter<Book> {
+public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
 
 
-    public BookAdapter(@NonNull Context context, @NonNull List<Book> objects) {
-        super(context, 0, objects);
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        public TextView bookName;
+
+        public ViewHolder(View itemView){
+            super(itemView);
+            bookName = (TextView) itemView.findViewById(R.id.bookName);
+
+        }
     }
 
-    @NonNull
+    private List<Book> books;
+
+    public BookAdapter(List<Book> b){
+        books = b;
+    }
+
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View rootView = convertView;
-        if (rootView == null){
-            rootView = LayoutInflater.from(getContext()).inflate(R.layout.book,parent,false);
-        }
-        Book book = getItem(position);
+    public BookAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        Context context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View contactView = inflater.inflate(R.layout.book,parent,false);
+        ViewHolder viewHolder = new ViewHolder(contactView);
+        return viewHolder;
+    }
 
-        TextView bookName = (TextView) rootView.findViewById(R.id.bookName);
-        bookName.setText("Name :" + book.getBookName());
+    @Override
+    public void onBindViewHolder(BookAdapter.ViewHolder viewHolder,int position){
+        Book book = books.get(position);
+        TextView bookName = viewHolder.bookName;
+        bookName.setText(book.getBookName());
+    }
 
-        TextView bookType = (TextView) rootView.findViewById(R.id.bookType);
-        bookType.setText("Type: " + book.getBookType());
-
-        TextView bookPages = (TextView) rootView.findViewById(R.id.bookPage);
-        bookPages.setText("Pages: " + book.getBookPages());
-
-        return rootView;
-
-
-
-
-
+    @Override
+    public int getItemCount(){
+        return books.size();
     }
 }

@@ -3,4 +3,7 @@
     <string name="bookName">Name: Yüzüklerin Efendisi: Kralın Dönüşü</string>
     <string name="bookPages">Pages: 500</string>
     <string name="bookType">Type: Fantasy</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

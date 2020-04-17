@@ -1,6 +1,8 @@
 package com.example.booklister;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
@@ -36,6 +38,8 @@ public class BookFragmentActivity extends FragmentActivity {
                     }
                 }
         ).attach();
+
+
     }
 
     @Override

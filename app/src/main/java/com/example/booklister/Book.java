@@ -1,6 +1,6 @@
 package com.example.booklister;
 
-public class Book {
+public class Book implements java.io.Serializable{
     private String bookName;
     private String bookType;
     private String bookPages;

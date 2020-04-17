@@ -1,7 +1,10 @@
 package com.example.booklister;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
@@ -35,18 +39,27 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
     }
 
     private List<Book> books;
+    private View con;
+    private Context c;
 
     public BookAdapter(List<Book> b){
         books = b;
     }
 
+
     @Override
     public BookAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        Context context = parent.getContext();
-        LayoutInflater inflater = LayoutInflater.from(context);
+        final Context mContext = parent.getContext();
+        c = mContext;
+        LayoutInflater inflater = LayoutInflater.from(mContext);
         View contactView = inflater.inflate(R.layout.book,parent,false);
+        con = contactView;
         ViewHolder viewHolder = new ViewHolder(contactView);
+
+
+
         return viewHolder;
+
     }
 
     @Override
@@ -61,6 +74,20 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
         ImageView bookImage = viewHolder.bookImage;
         if(book.getBookImage() != 0){
         bookImage.setImageResource(book.getBookImage());}
+
+        final int p = position;
+        con.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(c,BookDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("books", (Serializable) books);
+                bundle.putInt("pos",p);
+                i.putExtras(bundle);
+                c.startActivity(i);
+            }
+        });
+
 
     }
 

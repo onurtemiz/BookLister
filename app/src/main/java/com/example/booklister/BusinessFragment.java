@@ -43,6 +43,16 @@ public class BusinessFragment extends Fragment {
                              Bundle savedInstanceState) {
 
 
+        books.add(new Book("Rich Dad, Poor Dad","Sharon Lechter","195",R.drawable.rich_dad_poor_dad));
+        books.add(new Book("The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses","Eric Ries","299",R.drawable.the_lean_startup));
+        books.add(new Book("Zero to One: Notes on Startups, or How to Build the Future","Peter Thiel","195",R.drawable.zero_to_one));
+        books.add(new Book("How to Win Friends and Influence People","Dale Carnegie","288",R.drawable.how_to_win_friends));
+        books.add(new Book("The Tipping Point: How Little Things Can Make a Big Difference","Malcolm Gladwell","301",R.drawable.the_tipping_point));
+        books.add(new Book("The 4-Hour Workweek","Timothy Ferriss","308",R.drawable.the_four_hour_a_week));
+        books.add(new Book("The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change","Jim Collins","372",R.drawable.the_seven_habit));
+        books.add(new Book("Rework","David Heinemeier Hansson","279",R.drawable.rework));
+
+
         return (ViewGroup) inflater.inflate(R.layout.book_list,container,false);
 
     }

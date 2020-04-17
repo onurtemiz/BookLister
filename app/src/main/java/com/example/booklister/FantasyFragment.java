@@ -5,7 +5,10 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,12 +52,19 @@ public class FantasyFragment extends Fragment {
         books.add(new Book("Harry Potter And The Philosopher's Stone","Fantasy","231",0));
         books.add(new Book("The World Of Ice And Fire","Fantasy","582",0));
 
-//        BookAdapter bookAdapter = new BookAdapter(mContext,books);
-//        ListView listView = (ListView) getActivity().findViewById(R.id.bookListView);
-//        listView.setAdapter(bookAdapter);
+
 
         return (ViewGroup) inflater.inflate(R.layout.book_list,container,false);
 
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.bookListView);
+        BookAdapter bookAdapter = new BookAdapter(books);
+        recyclerView.setAdapter(bookAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+    }
 }
